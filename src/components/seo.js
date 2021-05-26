@@ -42,7 +42,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `image`,
-          content: ogImage
+          content: `https://magicspell.netlify.app${ogImage}`,
         },
         {
           property: `og:title`,
@@ -58,7 +58,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: ogImage,
+          content: `https://magicspell.netlify.app${ogImage}`,
         },
         {
           name: `twitter:card`,
@@ -74,7 +74,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: ogImage,
+          content: `https://magicspell.netlify.app${ogImage}`,
         },
         {
           name: `twitter:description`,
