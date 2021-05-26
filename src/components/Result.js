@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 
 import Layout from "./Layout"
 import Seo from "./seo"
@@ -9,7 +9,7 @@ const Result = ({ data, pageContext, location }) => {
   const { urlName, title } = pageContext
 
   const spell = data.allResultsYaml.edges.filter(item => item.node.name === title)[0].node;
-  console.log(spell)
+
   return (
     <Layout location={location} title={title}>
       <Seo title={title} />
@@ -29,10 +29,37 @@ const Result = ({ data, pageContext, location }) => {
       </h2>
 
       <p>
+        {spell.wiki} <b>(출처: 나무위키)</b>
+      </p>
+
+      <p>
+        <i>{spell.quote}</i> {"- 미란다 고쇼크의 <Book of Spells> 중"}
+      </p>
+
+      {/* Abilities */}
+      <Row className="abilities my-5 pt-2">
+        <Col className="flex-column align-items-center d-flex" xs={6}>
+          <h4 className="text-shine text-serif mb-5 pb-1">
+            {spell.abilities[0]}
+          </h4>
+          <div className="diamond"></div>
+        </Col>
+        <Col className="flex-column align-items-center d-flex" xs={6}>
+          <h4 className="text-shine text-serif mb-5 pb-1">
+            {spell.abilities[1]}
+          </h4>
+          <div className="diamond"></div>
+        </Col>
+      </Row>
+
+      <p className="pt-5">
           {spell.description}
       </p>
-      <p>
-          {spell.wiki} <b>(출처: 나무위키)</b>
+
+      <p className="text-muted text-center">
+        <small>
+          Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </small>
       </p>
 
     </Layout>
@@ -50,6 +77,7 @@ export const pageQuery = graphql`
                 headline
                 description
                 wiki
+                abilities
             }
         }
     }
