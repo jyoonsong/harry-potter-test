@@ -38,12 +38,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
         // The property ID; the tracking code won't be generated without it
         trackingId: "G-MDNT51T43W",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
+        head: true,
+        anonymize: true,
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
       },
