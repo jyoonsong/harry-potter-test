@@ -27,7 +27,7 @@ function Seo({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const host = (typeof window !== 'undefined') ? window.location.host : "https://magicspell.netlify.app";
+  const host = (typeof window !== 'undefined') ? window.location.host : "magicspell.netlify.app";
 
   return (
     <Helmet
