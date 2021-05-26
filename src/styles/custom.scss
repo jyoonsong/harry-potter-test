@@ -1,0 +1,147 @@
+html, body {
+    background-color: #000;
+    color: #fff;
+}
+
+footer {
+    border-top: 1px solid #333;
+}
+
+.text-serif {
+    font-family: 'Noto Serif KR', 'Nanum Myeongjo', 'Times', serif;
+    letter-spacing: -3px;
+}
+
+.text-shine {
+    text-shadow: 0 0 10px white;
+}
+
+.text-yellow {
+    color: $yellow;
+}
+
+.text-muted {
+    color: #b0b6bb !important
+}
+
+.text-spell {
+    font-family: "Comic Sans", cursive;
+    letter-spacing: 0;
+}
+
+.btn-primary {
+    color: #000;
+    border-color: $primary-color;
+    background-color: $primary-color;
+    outline: none;
+    &:hover, &:focus, &:active {
+        border-color: darken($primary-color, 10%); 
+        background-color: darken($primary-color, 10%);
+        color: #000;
+    }
+}
+
+.btn-outline-primary {
+    color: $primary-color;
+    border-color: $primary-color;
+    outline: none;
+    &:hover, &:focus, &:active {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: #000;
+    }
+}
+
+.ring {
+    animation: spin 15s linear infinite;
+}
+
+.ring-2 {
+    animation: spin 35s linear infinite;
+}
+
+@keyframes spin { 
+    0% {
+        -webkit-transform: rotate(0deg); 
+        transform:rotate(0deg);
+    }
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+
+.wand {
+    -webkit-clip-path: circle(121px);
+    clip-path: circle(121px);
+    // animation: slant 6s linear infinite both;
+}
+
+@keyframes slant {
+    0% {
+        -webkit-transform: rotate3d(0, 0, 1, 0) translate(0, 0); 
+        transform: rotate3d(0, 0, 1, 0) translate(0, 0);
+    }
+    50% {
+        -webkit-transform: rotate3d(0, 0, 1, 20deg) translate(-11px, 30px);
+        transform: rotate3d(0, 0, 1, 20deg) translate(-11px, 30px);
+    }
+    100% {
+        -webkit-transform: rotate3d(0, 0, 1, 0) translate(0, 0); 
+        transform: rotate3d(0, 0, 1, 0) translate(0, 0);
+    }
+}
+
+.blink {
+    opacity: 0;
+    animation: blink 6s linear infinite;
+    &.delay-2 {
+        animation-delay: 2s;
+    }
+    &.delay-4 {
+        animation-delay: 4s;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    16% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.stack {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    .stack {
+        width: 250px;
+        height: 250px;
+    }
+    .justify-content-end .stack {
+        margin-right: -24px;
+    }
+}
+
+.modal {
+    color: #000;
+}

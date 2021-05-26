@@ -1,0 +1,20 @@
+$primary-color: #BF9B70 !default;
+$purple: #381D5B !default;
+$red: #9A3516 !default;
+$dark-red: #580707 !default;
+
+$text-color: #fff !default;
+$yellow: #FFFAB5 !default;
+$orange: #F5A623 !default;
+
+// Basic
+@import "styles/bootstrap.min.css";
+@import "styles/normalize";
+
+// Fonts
+@import "styles/font";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap");
+
+// Custom
+@import "styles/stars";
+@import "styles/custom";

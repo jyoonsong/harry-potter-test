@@ -1,0 +1,55 @@
+.shoot {
+    width: 5px;
+    height: 5px;
+    background-color: $yellow;
+    box-shadow: 0px 1px 30px 0px rgba(255, 255, 255, 1);
+    position: fixed;
+    border-radius: 50%;
+    &:nth-child(1) {
+      top: 30%;
+      left: -5%;
+      -webkit-animation: shooting-star 8s ease-out 5s forwards infinite;
+      animation: shooting-star 8s ease-out 5s forwards infinite;
+    }
+    &:nth-child(2) {
+      top: 60%;
+      left: 70%;
+      -webkit-animation: shooting-star 10s ease-out forwards infinite;
+      animation: shooting-star 10s ease-out forwards infinite;
+    }
+  }
+  .stars {
+    padding: 20px;
+    position: fixed;
+    z-index: 998;
+  }
+  .stars div {
+    background-color: $yellow;
+    width: 2px;
+    height: 2px;
+    position: fixed;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: star infinite reverse;
+    animation: star infinite reverse;
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, .3)
+  }
+  
+  @keyframes shooting-star {
+    0% {
+      transform: scale(1);
+      transform: translate(0,0);
+      opacity: 1;
+    }
+    20%,100% {
+      transform: scale(0);
+      transform: translate(400px,200px);
+      opacity: 0;
+    }
+  }
+  @keyframes star {
+    0% { opacity: 0; }
+    25% { opacity: 0.7; }
+    75% { opacity: 0.7; }
+    100% { opacity: 0; }
+  }
