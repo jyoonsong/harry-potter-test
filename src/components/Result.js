@@ -26,7 +26,7 @@ const Result = ({ data, pageContext, location }) => {
     <Layout location={location} title={title}>
       <Seo 
         title={`나에게 어울리는 주문은 ${spell.name}`} 
-        image={picture}
+        image={picture.default}
       />
 
       <div className="d-flex justify-content-center">
