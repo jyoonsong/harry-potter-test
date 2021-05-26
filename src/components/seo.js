@@ -67,7 +67,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:image:height`,
-          content: `674`,
+          content: `630`,
         },
         {
           name: `twitter:card`,
