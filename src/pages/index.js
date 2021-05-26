@@ -25,7 +25,7 @@ const IndexPage = () => {
           어울리는<br/>
           해리포터 주문은?
         </h1>
-        <p className="text-muted">
+        <p className="text-muted text-normal">
           3분컷으로 알아보는 나에게 어울리는 해리포터 주문.
         </p>
         <Link to="/question/" className="btn btn-primary font-weight-bold">바로 시작하기</Link> <br />
