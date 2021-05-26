@@ -50,14 +50,14 @@ const Layout = ({ children }) => {
       <Container>
         {/* Header */}
         <Row>
-          <Col xs={12} sm={{span: 8, offset: 2}} md={{span: 6, offset: 3}}>
+          <Col xs={12} md={{span: 6, offset: 3}}>
             <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
           </Col>
         </Row>
 
         {/* Main */}
         <Row>
-          <Col xs={12} sm={{span: 8, offset: 2}} md={{span: 6, offset: 3}}>
+          <Col xs={12} md={{span: 6, offset: 3}}>
             {children}
           </Col>
         </Row>
