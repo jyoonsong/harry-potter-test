@@ -1,10 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem("scores");
+      window.localStorage.removeItem("question");
+    }
+  }, [])
 
   return (
     <>
