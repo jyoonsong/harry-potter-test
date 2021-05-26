@@ -16,7 +16,7 @@ const IndexPage = () => {
   return (
     <>
     <Layout>
-      <Seo title="Home" />
+      <Seo title="나에게 어울리는 해리포터 주문은?" />
 
       {/* Headline */}
       <div className="px-2 px-sm-0">
