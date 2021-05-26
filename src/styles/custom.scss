@@ -96,13 +96,18 @@ footer {
     }
 }
 
+
+
 .blink {
     opacity: 0;
+    -webkit-animation: blink 6s linear infinite;
     animation: blink 6s linear infinite;
     &.delay-2 {
+        -webkit-animation-delay: 2s;
         animation-delay: 2s;
     }
     &.delay-4 {
+        -webkit-animation-delay: 4s;
         animation-delay: 4s;
     }
 }
@@ -121,6 +126,7 @@ footer {
         opacity: 0;
     }
 }
+
 
 .stack {
     width: 300px;
