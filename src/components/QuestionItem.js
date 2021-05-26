@@ -3,14 +3,13 @@ import React, { useEffect, useState } from "react"
 const QuestionItem = ({ questions }) => {
 
     const [question, setQuestion] = useState(null);
-    const [scores, setScores] = useState(localStorage.getItem("scores") || [0, 0, 0, 0, 0, 0, 0, 0]);
+    const [scores, setScores] = useState(window.localStorage.getItem("scores") || [0, 0, 0, 0, 0, 0, 0, 0]);
     const [show, setShow] = useState(true);
     const [options, setOptions] = useState(null);
     const results = ["reparo", "lumos", "incendio", "expecto_patronum", "aqua_eructo", "diffindo", "tarantallegra", "incarcerous"];
     
     useEffect(() => {
-      setQuestion(JSON.parse(localStorage.getItem("question")) || questions[0].node);
-      console.log(JSON.parse(localStorage.getItem("question")) || questions[0].node)
+      setQuestion(JSON.parse(window.localStorage.getItem("question")) || questions[0].node);
       console.log(questions)
     }, [questions]);
     
@@ -58,8 +57,8 @@ const QuestionItem = ({ questions }) => {
         }
       }
 
-      localStorage.setItem("question", JSON.stringify(newQuestion));
-      localStorage.setItem("scores", newScores);
+      window.localStorage.setItem("question", JSON.stringify(newQuestion));
+      window.localStorage.setItem("scores", newScores);
 
       setTimeout(() => {
         setQuestion(newQuestion);
