@@ -9,7 +9,7 @@ import React, { useEffect } from "react"
 import { Container, Row, Col } from 'react-bootstrap';
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./hheader"
+import Header from "./Header"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
