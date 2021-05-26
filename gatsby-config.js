@@ -3,7 +3,7 @@ module.exports = {
     title: `나에게 어울리는 해리포터 주문은?`,
     description: `3분컷으로 알아보는 나에게 어울리는 해리포터 주문`,
     author: `Jaeyoon Song`,
-    image: `src/images/share.png`,
+    image: `/images/share/share.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
