@@ -8,9 +8,9 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import ogImage from "/static/images/share/share.png"
+import staticImage from "/static/images/share/share.png"
 
-function Seo({ description, lang, meta, title }) {
+function Seo({ description, lang, meta, title, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,6 +28,9 @@ function Seo({ description, lang, meta, title }) {
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
   const host = (typeof window !== 'undefined') ? window.location.host : "magicspell.netlify.app";
+  const ogImage = (image) ? image.default : staticImage;
+
+  console.log(ogImage);
 
   return (
     <Helmet

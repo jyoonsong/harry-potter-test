@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import { Row, Col } from 'react-bootstrap'
 
@@ -6,6 +6,7 @@ import Layout from "./Layout"
 import Seo from "./seo"
 
 const Result = ({ data, pageContext, location }) => {
+  const [picture, setPicture] = useState(null);
   const { urlName, title } = pageContext
 
   const spell = data.allResultsYaml.edges.filter(item => item.node.name === title)[0].node;
@@ -21,9 +22,22 @@ const Result = ({ data, pageContext, location }) => {
     }
   }
 
+  const importImage = async () => {
+    const pic = await import(`/static/images/share/${urlName}.jpg`);
+    setPicture(pic);
+    console.log(pic);
+  }
+
+  useEffect(() => {
+    importImage();
+  }, [])
+
   return (
     <Layout location={location} title={title}>
-      <Seo title={`나에게 어울리는 주문은 ${spell.name}`} />
+      <Seo 
+        title={`나에게 어울리는 주문은 ${spell.name}`} 
+        image={picture}
+      />
 
       <div className="d-flex justify-content-center">
         <div className="stack">
