@@ -28,7 +28,9 @@ function Seo({ description, lang, meta, title, image }) {
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
   const host = (typeof window !== 'undefined') ? window.location.host : "magicspell.netlify.app";
-  const ogImage = (image) ? image.default : staticImage;
+  const path = (typeof window !== 'undefined') ? window.location.pathname : "/";
+  const ogImage = (path.includes("result")) ? 
+    require(`/static/images/share/${path.substring(8, path.length - 1)}.jpg`).default : staticImage;
 
   console.log(ogImage);
 
