@@ -35,11 +35,14 @@ function Seo({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      image={ogImage}
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `image`,
+          content: ogImage
         },
         {
           property: `og:title`,
