@@ -1,6 +1,6 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Container, Row, Col } from 'react-bootstrap'
+import { graphql } from "gatsby"
+import { Row, Col } from 'react-bootstrap'
 
 import Layout from "./Layout"
 import Seo from "./seo"
@@ -9,6 +9,15 @@ const Result = ({ data, pageContext, location }) => {
   const { urlName, title } = pageContext
 
   const spell = data.allResultsYaml.edges.filter(item => item.node.name === title)[0].node;
+
+  const restart = () => {
+    const ok = window.confirm('정말 다시 시작하시겠습니까?');
+    localStorage.removeItem("scores");
+    localStorage.removeItem("question");
+    if (ok) {
+      window.location.replace("/");
+    }
+  }
 
   return (
     <Layout location={location} title={title}>
@@ -29,11 +38,19 @@ const Result = ({ data, pageContext, location }) => {
       </h2>
 
       <p>
-        {spell.wiki} <b>(출처: 나무위키)</b>
+          {spell.description}
       </p>
 
       <p>
-        <i>{spell.quote}</i> {"- 미란다 고쇼크의 <Book of Spells> 중"}
+        {spell.wiki} <b>(출처: 나무위키 &#38; <a href="https://harrypotter.fandom.com/wiki/Main_Page" target="_blank" rel="noreferrer">해리포터위키</a>)</b>
+      </p>
+
+      <div className="spell-image text-center mb-3">
+        <img src={`/images/spells/${urlName}.gif`} alt={spell.name} />
+      </div>
+
+      <p className="text-center quote">
+        <i>{spell.quote}</i> <br/> {"- 미란다 고쇼크의 <Book of Spells> 중"}
       </p>
 
       {/* Abilities */}
@@ -42,25 +59,30 @@ const Result = ({ data, pageContext, location }) => {
           <h4 className="text-shine text-serif mb-5 pb-1">
             {spell.abilities[0]}
           </h4>
-          <div className="diamond"></div>
+          <div className="diamond">
+            <img src="/images/abilities/crystals.png" alt="ability"/>
+          </div>
         </Col>
         <Col className="flex-column align-items-center d-flex" xs={6}>
           <h4 className="text-shine text-serif mb-5 pb-1">
             {spell.abilities[1]}
           </h4>
-          <div className="diamond"></div>
+          <div className="diamond">
+            <img src="/images/abilities/magic.png" alt="ability"/>
+          </div>
         </Col>
       </Row>
 
-      <p className="pt-5">
-          {spell.description}
+      
+
+      <p className="text-muted text-center pt-3">
+        <small>
+          Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noreferrer">www.flaticon.com</a>
+        </small>
+        <br /><br />
+        <b className="restart" onClick={restart}>처음부터 다시 하기</b>
       </p>
 
-      <p className="text-muted text-center">
-        <small>
-          Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-        </small>
-      </p>
 
     </Layout>
   )
@@ -77,6 +99,7 @@ export const pageQuery = graphql`
                 headline
                 description
                 wiki
+                quote
                 abilities
             }
         }

@@ -6,7 +6,7 @@
     - answer: 나를 보호해줄 수 있는 능력
       rids: [2, 3, 6, 7]
 - qid: 1
-  question: 카페에서 자리에 가방을 올려두고 잠시 화장실에 다녀온 사이, 누군가 내 자리에 앉아있다. 당신의 반응은?
+  question: 카페에서 자리에 가방을 올려두고 잠시 화장실에 다녀온 사이, 누군가 내 자리에 앉아있다. <br />당신의 반응은?
   options:
     - answer: 혹시 비켜줄 수 있는지 예의바르게 물어본다.
       rids: [2, 3, 5]
@@ -31,7 +31,7 @@
     - answer: 해리 포터
       rids: [2, 3]
     - answer: 헤르미온느 그레인저
-      rids: [4, 5]
+      rids: [4]
     - answer: 론 위즐리
       rids: [6, 7]
     - answer: 네빌 롱바텀
@@ -77,4 +77,4 @@
     - answer: 생수
     - answer: 검
     - answer: MP3 플레이어
-    - answer: 밧줄
+    - answer: 나의 추억 상자
