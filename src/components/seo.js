@@ -8,6 +8,7 @@
 import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import ogImage from "../images/share.png"
 
 function Seo({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -34,6 +35,7 @@ function Seo({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      image={ogImage}
       meta={[
         {
           name: `description`,

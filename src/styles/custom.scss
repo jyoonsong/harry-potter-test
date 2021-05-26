@@ -244,3 +244,15 @@ $dsize: 160px;
 .restart {
     cursor: pointer;
 }
+
+.icon-share {
+    width: 60px;
+    display: inline-block;
+    margin-right: 1rem;
+    cursor: pointer;
+    img {
+        border: 2px solid #efefef;
+        border-radius: 50%;
+        width: 100%;
+    }
+}

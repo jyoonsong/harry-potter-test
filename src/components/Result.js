@@ -23,7 +23,7 @@ const Result = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location} title={title}>
-      <Seo title={title} />
+      <Seo title={`나에게 어울리는 주문은 ${spell.name}`} />
 
       <div className="d-flex justify-content-center">
         <div className="stack">
