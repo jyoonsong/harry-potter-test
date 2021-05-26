@@ -27,6 +27,7 @@ function Seo({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const host = (typeof window !== 'undefined') ? window.location.host : "https://magicspell.netlify.app";
 
   return (
     <Helmet
@@ -42,7 +43,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `image`,
-          content: `https://magicspell.netlify.app${ogImage}`,
+          content: `https://${host}${ogImage}`,
         },
         {
           property: `og:title`,
@@ -58,7 +59,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `https://magicspell.netlify.app${ogImage}`,
+          content: `https://${host}${ogImage}`,
         },
         {
           name: `twitter:card`,
@@ -74,7 +75,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: `https://magicspell.netlify.app${ogImage}`,
+          content: `https://${host}${ogImage}`,
         },
         {
           name: `twitter:description`,
