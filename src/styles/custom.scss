@@ -57,10 +57,12 @@ footer {
 }
 
 .ring {
+    -webkit-animation: spin 15s linear infinite;
     animation: spin 15s linear infinite;
 }
 
 .ring-2 {
+    -webkit-animation: spin 35s linear infinite;
     animation: spin 35s linear infinite;
 }
 
@@ -171,6 +173,7 @@ footer {
 $dsize: 160px;
 
 .abilities {
+    -webkit-animation: float 3s ease 1s infinite;
     animation: float 3s ease 1s infinite;
     .diamond {
         padding: .5rem 1.5rem;
