@@ -28,8 +28,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `나에게 어울리는 해리포터 주문은?`,
+        short_name: `harrypotter`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
