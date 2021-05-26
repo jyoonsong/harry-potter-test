@@ -21,7 +21,7 @@ const Question = ({ data }) => {
   
   return (
     <Layout>
-      <Seo title="Page two" />
+      <Seo title="테스트중" />
       <QuestionItem questions={questions} />
 
       <div className="text-muted text-center mt-5 text-light restart">
