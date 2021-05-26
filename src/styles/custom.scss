@@ -152,6 +152,12 @@ footer {
     }
 }
 
+@media (min-width: 768px) {
+    .radio label:hover {
+        color: #fff;
+    }
+}
+
 .modal {
     color: #000;
 }
@@ -211,10 +217,7 @@ $dsize: 160px;
         background: none;
         position: relative;
         width: 100%;
-        &:hover {
-            color: white;
-            cursor: pointer;
-        }
+        cursor: pointer;
     }
     input:checked ~ label {
         color: white;
