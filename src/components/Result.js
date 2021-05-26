@@ -6,10 +6,10 @@ import Layout from "./Layout"
 import Seo from "./seo"
 
 const Result = ({ data, pageContext, location }) => {
-  const [picture, setPicture] = useState(null);
   const { urlName, title } = pageContext
 
   const spell = data.allResultsYaml.edges.filter(item => item.node.name === title)[0].node;
+  const picture = require(`/static/images/share/${urlName}.jpg`);
 
   const restart = () => {
     if (typeof window !== 'undefined') {
@@ -21,16 +21,6 @@ const Result = ({ data, pageContext, location }) => {
       }
     }
   }
-
-  const importImage = async () => {
-    const pic = await import(`/static/images/share/${urlName}.jpg`);
-    setPicture(pic);
-    console.log(pic);
-  }
-
-  useEffect(() => {
-    importImage();
-  }, [])
 
   return (
     <Layout location={location} title={title}>
