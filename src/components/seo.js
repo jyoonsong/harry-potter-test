@@ -62,6 +62,14 @@ function Seo({ description, lang, meta, title }) {
           content: `https://${host}${ogImage}`,
         },
         {
+          property: `og:image:width`,
+          content: `1138`,
+        },
+        {
+          property: `og:image:height`,
+          content: `674`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
