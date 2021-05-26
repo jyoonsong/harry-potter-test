@@ -9,11 +9,13 @@ const Question = ({ data }) => {
   const questions = data.allQuestionsYaml.edges;
   
   const restart = () => {
-    const ok = window.confirm('정말 다시 시작하시겠습니까?');
-    localStorage.removeItem("scores");
-    localStorage.removeItem("question");
-    if (ok) {
-      window.location.replace("/");
+    if (typeof window !== 'undefined') {
+      const ok = window.confirm('정말 다시 시작하시겠습니까?');
+      localStorage.removeItem("scores");
+      localStorage.removeItem("question");
+      if (ok) {
+        window.location.replace("/");
+      }
     }
   }
   

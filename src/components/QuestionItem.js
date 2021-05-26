@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react"
 
 const QuestionItem = ({ questions }) => {
+    let localScores = null;
+    if (typeof window !== 'undefined') {
+      localScores = window.localStorage.getItem("scores")
+    }
 
     const [question, setQuestion] = useState(null);
-    const [scores, setScores] = useState(window.localStorage.getItem("scores") || [0, 0, 0, 0, 0, 0, 0, 0]);
+    const [scores, setScores] = useState(localScores || [0, 0, 0, 0, 0, 0, 0, 0]);
     const [show, setShow] = useState(true);
     const [options, setOptions] = useState(null);
     const results = ["reparo", "lumos", "incendio", "expecto_patronum", "aqua_eructo", "diffindo", "tarantallegra", "incarcerous"];
     
     useEffect(() => {
-      setQuestion(JSON.parse(window.localStorage.getItem("question")) || questions[0].node);
-      console.log(questions)
+      if (typeof window !== 'undefined') {
+        setQuestion(JSON.parse(window.localStorage.getItem("question")) || questions[0].node);
+      }
     }, [questions]);
     
     const onAnswerClick = (event) => {
@@ -43,7 +48,9 @@ const QuestionItem = ({ questions }) => {
         console.log(maxIndices)
         if (question.qid === 7 || maxIndices.length <= 1) {
           // end the test
-          window.location.replace(`/result/${results[maxIndices[0]]}`)
+          if (typeof window !== 'undefined') {
+            window.location.replace(`/result/${results[maxIndices[0]]}`)
+          }
         }
         else {
           let newOptions = []
@@ -56,9 +63,10 @@ const QuestionItem = ({ questions }) => {
           setOptions(newOptions);
         }
       }
-
-      window.localStorage.setItem("question", JSON.stringify(newQuestion));
-      window.localStorage.setItem("scores", newScores);
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem("question", JSON.stringify(newQuestion));
+        window.localStorage.setItem("scores", newScores);
+      }
 
       setTimeout(() => {
         setQuestion(newQuestion);
