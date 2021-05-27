@@ -49,6 +49,8 @@ const QuestionItem = ({ questions }) => {
         if (question.qid === 7 || maxIndices.length <= 1) {
           // end the test
           if (typeof window !== 'undefined') {
+            window.localStorage.removeItem("scores");
+            window.localStorage.removeItem("question");
             window.location.replace(`/result/${results[maxIndices[0]]}`)
           }
         }
