@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { graphql } from "gatsby"
+import React from "react"
+import { graphql, Link } from "gatsby"
 import { Row, Col } from 'react-bootstrap'
 
 import Layout from "./Layout"
@@ -10,12 +10,6 @@ const Result = ({ data, pageContext, location }) => {
 
   const spell = data.allResultsYaml.edges.filter(item => item.node.name === title)[0].node;
   const picture = require(`/static/images/share/${urlName}.jpg`);
-
-  const restart = () => {
-    if (typeof window !== 'undefined') {
-      window.location.replace("/timeturner");
-    }
-  }
 
   return (
     <Layout location={location} title={title}>
@@ -81,7 +75,7 @@ const Result = ({ data, pageContext, location }) => {
           Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noreferrer">www.flaticon.com</a>
         </small>
         <br /><br />
-        <b className="restart" onClick={restart}>처음부터 다시 하기</b>
+        <Link to="/timeturner" className="restart"><b>처음부터 다시 하기</b></Link>
       </p>
 
 

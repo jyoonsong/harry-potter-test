@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => {
   return (
   <>
     <header>
-      <Navbar className="px-0 py-3">
+      <Navbar className="px-0 py-3" sticky="top">
         <Navbar.Collapse id="basic-navbar-nav">
 
             <Nav className="mr-auto">

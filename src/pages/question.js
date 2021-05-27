@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Layout from "../components/Layout"
 import QuestionItem from "../components/QuestionItem";
@@ -20,7 +20,7 @@ const Question = ({ data }) => {
       <QuestionItem questions={questions} />
 
       <div className="text-muted text-center mt-5 text-light restart">
-        <small onClick={restart}>처음부터 다시 하기</small>
+        <Link to="/timeturner"><small>처음부터 다시 하기</small></Link>
       </div>
     </Layout>
   )
