@@ -75,7 +75,7 @@ const Result = ({ data, pageContext, location }) => {
           Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noreferrer">www.flaticon.com</a>
         </small>
         <br /><br />
-        <Link to="/timeturner" className="restart"><b>처음부터 다시 하기</b></Link>
+        <Link to="/" className="restart"><b>처음부터 다시 하기</b></Link>
       </p>
 
 
