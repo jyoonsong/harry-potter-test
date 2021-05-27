@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
 
     if (typeof window !== 'undefined') {
       const script = document.createElement('script')
-      script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+      script.src = 'https://developers.kakao.com/sdk/js/kakao.min.js'
       script.async = true
       document.body.appendChild(script)
       return () => {

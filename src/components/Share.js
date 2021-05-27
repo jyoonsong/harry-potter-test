@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { Modal } from 'react-bootstrap'
 
 const Share = ({ siteTitle, show, setShow }) => {
@@ -55,9 +55,17 @@ const Share = ({ siteTitle, show, setShow }) => {
 
     const Share = {
         kakao: () => {
+            if (!window.Kakao.isInitialized()) {
+                try {
+                    const key = process.env.GATSBY_KAKAO_KEY;
+                    window.Kakao.init(key);
+                } catch (e) {
+                    console.log(e.message);
+                }
+            }
             try {
                 window.Kakao.Link.sendScrap({
-                    requestUrl: this.currentLink
+                    requestUrl: currentLink
                 });
             }
             catch (e) {
@@ -77,6 +85,16 @@ const Share = ({ siteTitle, show, setShow }) => {
             copyTextToClipboard(currentLink);
         }
     };
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && window.Kakao && !(window.Kakao.isInitialized())) {
+            try {
+                window.Kakao.init(process.env.GATSBY_KAKAO_KEY)
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    })
 
     return(
     <Modal show={show} onHide={() => setShow(false)}>
