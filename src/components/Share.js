@@ -54,6 +54,16 @@ const Share = ({ siteTitle, show, setShow }) => {
     const currentLink = (typeof window !== 'undefined') ? window.location.href.replace("/question", "") : "";
 
     const Share = {
+        kakao: () => {
+            try {
+                window.Kakao.Link.sendScrap({
+                    requestUrl: this.currentLink
+                });
+            }
+            catch (e) {
+                alert(e.message);
+            }
+        },
         twitter: () => {
             openInNewTab("https://twitter.com/intent/tweet?url=" + currentLink);
         },
@@ -78,6 +88,9 @@ const Share = ({ siteTitle, show, setShow }) => {
         <Modal.Body className="text-center">
             <a className="icon-share" onClick={() => Share.facebook()}>
                 <img src="/images/share/facebook.svg" alt="share icon" />
+            </a>
+            <a className="icon-share" onClick={() => Share.kakao()}>
+                <img src="/images/share/kakao.png" alt="share icon" />
             </a>
             <a className="icon-share" onClick={() => Share.naver()}>
                 <img src="/images/share/naver.png" alt="share icon" />
